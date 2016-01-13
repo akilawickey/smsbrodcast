@@ -1,0 +1,46 @@
+extends layout
+
+
+
+block content
+  if (!user)
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    body
+    
+      p You are currently logged in as #{user.username}
+    a(href="/logout") Logout
+    
+    br
+    .container
+      // -------------------------------------------------------------------------------------------------------------
+      // ---------------------------------------------ROW----------------------------------------------------------------
+      .row
+        nav.navbar.navbar-inverse(role='navigation')
+          .navbar-header
+            a.navbar-brand(href='#') SMS Sender
+          div
+            ul.nav.navbar-nav
+              li.active
+                a(href='#') HOME
+              li
+                a(href='accountmanagement.html') ACCOUNT MANAGEMENT
+              li
+                a(href='adduser.html') ADD USER
+      // -------------------------------------------------------------------------------------------------------------
+      // ----------------------------------------------ROW---------------------------------------------------------------
+      .row
+        .col-lg-10
+          form.form-horizontal(role='form')
+            .form-group
+              label(for='message', style='font-size: 20px') Message
+              textarea#message.form-control(rows='8')
+            .form-group
+              button.btn.btn-info(type='submit') SEND
+        .col-lg-2
+  
+    br
+    br
+    a(href="/home") home
